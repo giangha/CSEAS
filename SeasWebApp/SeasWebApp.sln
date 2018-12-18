@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seas", "seas\seas.csproj", "{CD7A9221-FA7F-4206-8B5E-D648D158C256}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeasWebApp", "SeasWebApp\SeasWebApp.csproj", "{795B3370-2CA6-4B1B-B374-2B3F90C96006}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CD7A9221-FA7F-4206-8B5E-D648D158C256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD7A9221-FA7F-4206-8B5E-D648D158C256}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD7A9221-FA7F-4206-8B5E-D648D158C256}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD7A9221-FA7F-4206-8B5E-D648D158C256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{795B3370-2CA6-4B1B-B374-2B3F90C96006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{795B3370-2CA6-4B1B-B374-2B3F90C96006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{795B3370-2CA6-4B1B-B374-2B3F90C96006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{795B3370-2CA6-4B1B-B374-2B3F90C96006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E1B4DB9D-8A38-48EA-B27D-16ADDD27BDA0}
+		SolutionGuid = {2804F8D0-9DB0-48D4-96F9-A10B28FA22F4}
 	EndGlobalSection
 EndGlobal

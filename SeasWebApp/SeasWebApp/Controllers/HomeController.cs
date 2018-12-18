@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using seas.Models;
+using SeasWebApp.Models;
 
-namespace seas.Controllers
+namespace SeasWebApp.Controllers
 {
     public class HomeController : Controller
     {

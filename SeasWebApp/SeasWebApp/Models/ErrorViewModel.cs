@@ -1,6 +1,6 @@
 using System;
 
-namespace seas.Models
+namespace SeasWebApp.Models
 {
     public class ErrorViewModel
     {
