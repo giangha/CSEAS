@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace SeasWebApp.Enum
 {
-    public enum UserType
+    public enum GradePointType
     {
         Unknown = 0,
-        Student = 1,
-        Teacher = 2
+        ClassWord= 1,
+        HomeWork= 2,
+        Quiz= 3,
+        Final = 4
     }
 }

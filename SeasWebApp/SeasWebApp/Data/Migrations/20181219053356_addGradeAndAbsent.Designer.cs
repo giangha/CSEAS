@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeasWebApp.Data;
 
 namespace SeasWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181219053356_addGradeAndAbsent")]
+    partial class addGradeAndAbsent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,42 +240,6 @@ namespace SeasWebApp.Data.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("SeasWebApp.Models.UserAbsent", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<Guid?>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserAbsent");
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.UserGrade", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("Date");
-
-                    b.Property<int>("GradeType");
-
-                    b.Property<Guid?>("UserId");
-
-                    b.Property<int>("point");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserGrade");
-                });
-
             modelBuilder.Entity("SeasWebApp.Models.UserToClass", b =>
                 {
                     b.Property<Guid>("Id")
@@ -349,20 +315,6 @@ namespace SeasWebApp.Data.Migrations
                     b.HasOne("SeasWebApp.Models.AccountUser")
                         .WithMany("Users")
                         .HasForeignKey("AccountUserId");
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.UserAbsent", b =>
-                {
-                    b.HasOne("SeasWebApp.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.UserGrade", b =>
-                {
-                    b.HasOne("SeasWebApp.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("SeasWebApp.Models.UserToClass", b =>
