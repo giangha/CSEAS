@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeasWebApp.Data;
 
 namespace SeasWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181219050307_addClass")]
+    partial class addClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,38 +186,22 @@ namespace SeasWebApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SeasWebApp.Models.AccountUser", b =>
+            modelBuilder.Entity("SeasWebApp.Models.Class", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AccountId");
+                    b.Property<string>("Grade");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
-
-                    b.ToTable("AccountToUsers");
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.Grade", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("InGrade");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Grade");
+                    b.ToTable("_class");
                 });
 
             modelBuilder.Entity("SeasWebApp.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<Guid?>("AccountUserId");
 
                     b.Property<DateTime>("CreatedDate");
 
@@ -233,8 +219,6 @@ namespace SeasWebApp.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountUserId");
-
                     b.ToTable("User");
                 });
 
@@ -243,17 +227,17 @@ namespace SeasWebApp.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid?>("gradeId");
+                    b.Property<Guid?>("_classId");
 
                     b.Property<Guid?>("userId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("gradeId");
+                    b.HasIndex("_classId");
 
                     b.HasIndex("userId");
 
-                    b.ToTable("UserToClass");
+                    b.ToTable("userToClass");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -301,25 +285,11 @@ namespace SeasWebApp.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SeasWebApp.Models.AccountUser", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountId");
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.User", b =>
-                {
-                    b.HasOne("SeasWebApp.Models.AccountUser")
-                        .WithMany("Users")
-                        .HasForeignKey("AccountUserId");
-                });
-
             modelBuilder.Entity("SeasWebApp.Models.UserToClass", b =>
                 {
-                    b.HasOne("SeasWebApp.Models.Grade", "grade")
+                    b.HasOne("SeasWebApp.Models.Class", "_class")
                         .WithMany()
-                        .HasForeignKey("gradeId");
+                        .HasForeignKey("_classId");
 
                     b.HasOne("SeasWebApp.Models.User", "user")
                         .WithMany()

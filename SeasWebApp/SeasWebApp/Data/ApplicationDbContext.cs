@@ -15,5 +15,8 @@ namespace SeasWebApp.Data
         }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Grade> Grade { get; set; }
+        public DbSet<UserToClass> UserToClass { get; set; }
+        public DbSet<AccountUser> AccountToUsers { get; set; }
     }
 }

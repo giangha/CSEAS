@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SeasWebApp.Data;
 
 namespace SeasWebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181219051508_addAccountToUser")]
+    partial class addAccountToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,20 +186,6 @@ namespace SeasWebApp.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SeasWebApp.Models.AccountUser", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("AccountId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountId");
-
-                    b.ToTable("AccountToUsers");
-                });
-
             modelBuilder.Entity("SeasWebApp.Models.Grade", b =>
                 {
                     b.Property<Guid>("Id")
@@ -215,8 +203,6 @@ namespace SeasWebApp.Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid?>("AccountUserId");
-
                     b.Property<DateTime>("CreatedDate");
 
                     b.Property<DateTime>("DateOfBirth");
@@ -232,8 +218,6 @@ namespace SeasWebApp.Data.Migrations
                     b.Property<int>("UserType");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AccountUserId");
 
                     b.ToTable("User");
                 });
@@ -299,20 +283,6 @@ namespace SeasWebApp.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.AccountUser", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Account")
-                        .WithMany()
-                        .HasForeignKey("AccountId");
-                });
-
-            modelBuilder.Entity("SeasWebApp.Models.User", b =>
-                {
-                    b.HasOne("SeasWebApp.Models.AccountUser")
-                        .WithMany("Users")
-                        .HasForeignKey("AccountUserId");
                 });
 
             modelBuilder.Entity("SeasWebApp.Models.UserToClass", b =>
